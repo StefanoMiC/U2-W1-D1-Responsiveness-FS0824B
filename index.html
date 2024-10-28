@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U2-W1-D1</title>
+    <style>
+        button {
+            display: none;
+        }
+
+
+        /* E' Importante posizionare le media queries al di sotto di ciò che devono sovrascrivere (eventualmente) */
+        /* max-width: 500px */
+
+        /* da 0 --------- 500px */
+        @media screen and (max-width: 500px) {
+            h1 {
+                color: red;
+            }
+
+            h1,
+            p {
+                text-align: center;
+            }
+        }
+
+
+        /* min-width: 501px */
+        /* da 501px --------- Infinite */
+        @media screen and (min-width: 501px) {
+            button {
+                display: inline-block;
+            }
+        }
+
+        /* min-width: 1001px */
+        /* da 1001px --------- Infinite */
+        @media screen and (min-width: 1001px) {
+            button {
+                display: none;
+            }
+        }
+
+        /* creare un range definito (da usare con cautela) */
+        /* da 700px --------- 900px */
+        @media screen and (min-width: 700px) and (max-width: 900px) {
+            h1 {
+                font-size: 60px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                color: blue;
+            }
+        }
+
+
+        @media print {
+            h1 {
+                display: none;
+            }
+
+            button {
+                display: inline-block;
+            }
+        }
+    </style>
+
+    <style>
+        /* approccio consigliato:
+        1) creo le regole di base (per il mobile)
+        2) cambio alcuni valori per modificare l'aspetto su dispositivi più grandi tramite media query con min-width
+         */
+
+        /* mobile: da 0 a 575px (non serve specificarlo con una media query, è la definizione di base) */
+        /* tablet: da 567 a 767px */
+        /* medium: da 768px a 991px */
+        /* large: da 992px a 1199px */
+        /* x-large: da 1200px a 1399px */
+        /* xx-large: da 1400px a Infinite */
+
+
+        /* regola per mobile */
+        p {
+            color: rgb(59, 4, 61);
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        /* da medium in poi cambierà font size */
+        @media screen and (min-width: 768px) {
+            p {
+                font-size: 16px;
+                line-height: 1.2;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            p {
+                color: blue;
+                max-width: 500px;
+            }
+        }
+
+        @media screen and (min-width: 1400px) {
+            p {
+                /* max-width: initial; */
+                max-width: unset;
+            }
+        }
+
+        /* Consiglio: crea in anticipo tutti i blocchi di media query in fondo al CSS con i breakpoint standard,
+        per darti la possibilità di cambiare qualunque elemento specificato all'interno nelle varie dimensioni di schermo */
+    </style>
+</head>
+
+<body>
+    <h1>Responsive design</h1>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem sint rem fuga cumque voluptas nesciunt
+        repellendus assumenda error voluptates, magni nobis adipisci eaque iure accusantium voluptate vero ad facere
+        asperiores?</p>
+    <button>Bottone principale</button>
+</body>
+
+</html>
